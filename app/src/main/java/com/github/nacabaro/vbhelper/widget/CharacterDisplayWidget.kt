@@ -30,6 +30,7 @@ import androidx.glance.unit.ColorProvider
 import com.github.nacabaro.vbhelper.di.VBHelper
 import com.github.nacabaro.vbhelper.utils.BitmapData
 import com.github.nacabaro.vbhelper.utils.getBitmap
+import kotlinx.coroutines.flow.first
 
 /*
     RANT: Why did they have to create the components from Jetpack Compose
@@ -47,6 +48,7 @@ class CharacterDisplayWidget : GlanceAppWidget() {
         val currentCharacter = storageRepository
             .userCharacterDao()
             .getActiveCharacter()
+            .first()
 
         val multiplier = 4
 
